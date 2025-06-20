@@ -17,7 +17,11 @@ const Contact = () => {
 
   return (
     <section className="contact-section">
-      <h2 className="section-title">Contact</h2>
+      <h2 className="section-title">Hire Me – Let's Build Your Flutter App</h2>
+      <p style={{ textAlign: 'center', color: '#4e9cff', fontSize: '1.1rem', marginBottom: '2rem', lineHeight: '1.6' }}>
+        Looking for a reliable Flutter app developer? Let's work together to create your cross-platform mobile application. 
+        I specialize in Flutter development, Firebase integration, and delivering high-quality apps for both Android and iOS.
+      </p>
       <form className="contact-form" ref={formRef} onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Name</label>
@@ -31,7 +35,7 @@ const Contact = () => {
           <label htmlFor="message">Message</label>
           <textarea id="message" name="message" rows="4" required></textarea>
         </div>
-        <button type="submit" className="contact-submit">Send Message</button>
+        <button type="submit" className="contact-submit">Get Flutter Development Quote</button>
       </form>
     </section>
   );

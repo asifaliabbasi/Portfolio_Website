@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
 const services = [
-  { icon: '📱', title: 'Flutter App Development', desc: 'Custom mobile apps for iOS & Android.', details: 'I build high-performance, beautiful, and scalable mobile applications for both iOS and Android using Flutter. My apps feature smooth animations, native performance, and a single codebase for faster delivery.' },
-  { icon: '🔥', title: 'Firebase Integration', desc: 'Realtime database, auth, and more.', details: 'Integrate your app with Firebase for real-time databases, authentication, cloud functions, push notifications, analytics, and more. I ensure secure and scalable backend solutions.' },
-  { icon: '🔗', title: 'REST/GraphQL APIs', desc: 'Robust backend connectivity.', details: 'I design and integrate robust REST and GraphQL APIs to connect your app to powerful backends, enabling seamless data exchange and advanced features.' },
-  { icon: '🎨', title: 'UI/UX for Mobile', desc: 'Beautiful, intuitive interfaces.', details: 'I craft stunning and intuitive user interfaces, focusing on user experience, accessibility, and modern design trends to make your app stand out.' },
-  { icon: '🚀', title: 'App Store Deployment', desc: 'Launch on App Store & Play Store.', details: 'I handle the entire deployment process, ensuring your app meets all guidelines and is successfully published on the App Store and Google Play Store.' },
-  { icon: '⚡', title: 'App Optimization', desc: 'Performance tuning & best practices.', details: 'I optimize your app for speed, battery efficiency, and smooth performance, following best practices and using the latest tools.' },
+  { icon: '📱', title: 'Custom Flutter App Development', desc: 'Cross-platform mobile apps for iOS & Android from single codebase.', details: 'I build high-performance, beautiful, and scalable mobile applications for both iOS and Android using Flutter and Dart programming. My apps feature smooth animations, native performance, and a single codebase for faster delivery and cost-effective development.' },
+  { icon: '🔥', title: 'Firebase Integration & Backend', desc: 'Realtime database, authentication, and cloud functions.', details: 'Integrate your Flutter app with Firebase for real-time databases, secure authentication, cloud functions, push notifications, analytics, and more. I ensure secure and scalable backend solutions that grow with your business.' },
+  { icon: '🔗', title: 'REST/GraphQL API Integration', desc: 'Robust backend connectivity and data management.', details: 'I design and integrate robust REST and GraphQL APIs to connect your Flutter app to powerful backends, enabling seamless data exchange, third-party integrations, and advanced features.' },
+  { icon: '🎨', title: 'Custom UI/UX Design', desc: 'Beautiful, intuitive Flutter interfaces.', details: 'I craft stunning and intuitive user interfaces using Flutter\'s rich widget library, focusing on user experience, accessibility, and modern design trends to make your app stand out in the market.' },
+  { icon: '🚀', title: 'App Store Deployment', desc: 'Launch on Google Play Store & Apple App Store.', details: 'I handle the entire deployment process, ensuring your Flutter app meets all guidelines and is successfully published on the Google Play Store and Apple App Store with proper optimization.' },
+  { icon: '⚡', title: 'Flutter App Optimization', desc: 'Performance tuning & best practices for Flutter apps.', details: 'I optimize your Flutter app for speed, battery efficiency, smooth performance, and smaller app size, following Flutter best practices and using the latest optimization techniques.' },
 ];
 
 function ServiceModal({ open, onClose, service }) {
@@ -49,7 +49,7 @@ const Services = ({ showAvatar, playJump }) => {
 
   return (
     <section className="services-section">
-      <h2 className="section-title">My Services</h2>
+      <h2 className="section-title">Flutter App Development Services</h2>
       <div className="services-grid">
         {services.map((service, idx) => (
           <div className="service-card" key={idx}>
@@ -60,6 +60,35 @@ const Services = ({ showAvatar, playJump }) => {
           </div>
         ))}
       </div>
+      
+      {/* FAQ Section */}
+      <div style={{ marginTop: '3rem', background: 'rgba(36, 36, 64, 0.7)', borderRadius: '1.5rem', padding: '2rem' }}>
+        <h3 style={{ color: '#a259ff', fontSize: '1.8rem', marginBottom: '1.5rem', textAlign: 'center' }}>Frequently Asked Questions</h3>
+        <div style={{ display: 'grid', gap: '1.5rem' }}>
+          <div>
+            <h4 style={{ color: '#4e9cff', fontSize: '1.2rem', marginBottom: '0.5rem' }}>How much does it cost to build a Flutter app?</h4>
+            <p style={{ color: '#e0e0e0', lineHeight: '1.6' }}>
+              The cost depends on app complexity, features, and timeline. I provide competitive rates for Flutter development 
+              starting from basic apps to complex enterprise solutions. Contact me for a detailed quote.
+            </p>
+          </div>
+          <div>
+            <h4 style={{ color: '#4e9cff', fontSize: '1.2rem', marginBottom: '0.5rem' }}>Why choose Flutter for your mobile app?</h4>
+            <p style={{ color: '#e0e0e0', lineHeight: '1.6' }}>
+              Flutter allows building apps for both Android and iOS from a single codebase, reducing development time and costs. 
+              It offers native performance, beautiful UI, and faster development cycles compared to traditional native development.
+            </p>
+          </div>
+          <div>
+            <h4 style={{ color: '#4e9cff', fontSize: '1.2rem', marginBottom: '0.5rem' }}>Do you provide Play Store / App Store uploads?</h4>
+            <p style={{ color: '#e0e0e0', lineHeight: '1.6' }}>
+              Yes, I handle the complete app deployment process including Google Play Store and Apple App Store submissions, 
+              ensuring your Flutter app meets all guidelines and is successfully published.
+            </p>
+          </div>
+        </div>
+      </div>
+      
       <ServiceModal open={modalOpen} onClose={handleCloseModal} service={selectedService} />
       <style>{`
         @media (max-width: 500px) {

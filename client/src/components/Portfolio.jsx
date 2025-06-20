@@ -4,31 +4,36 @@ import { useInView } from 'react-intersection-observer';
 const projects = [
   {
     img: '/assets/apps/ShopEasy.png',
-    title: 'ShopEasy',
-    desc: 'A modern E-commerce app.',
-    details: 'ShopEasy is a modern E-commerce app designed for seamless online shopping. It features a user-friendly interface, secure authentication, real-time product updates, and a smooth checkout process. Built with Flutter for cross-platform compatibility and Firebase for robust backend services, ShopEasy ensures a fast, reliable, and scalable shopping experience.',
-    github: 'https://github.com/asifaliabbasi/Ecommer_Application_CodeAlpha_task1'
+    title: 'ShopEasy - Flutter E-commerce App',
+    desc: 'Modern cross-platform E-commerce app built with Flutter and Firebase.',
+    details: 'ShopEasy is a modern E-commerce Flutter app designed for seamless online shopping across Android and iOS. Features include user-friendly interface, secure authentication, real-time product updates, and smooth checkout process. Built with Flutter and Dart for cross-platform compatibility and Firebase for robust backend services, ShopEasy ensures a fast, reliable, and scalable shopping experience.',
+    github: 'https://github.com/asifaliabbasi/Ecommer_Application_CodeAlpha_task1',
+    technologies: ['Flutter', 'Dart', 'Firebase', 'Cross-Platform']
   },
   {
     img: '/assets/apps/Friday AI Assistant.png',
-    title: 'AI Assistant',
-    desc: 'Your smart AI companion.',
-    details: 'AI Assistant is your smart AI companion, capable of answering questions, setting reminders, and assisting with daily tasks. Leveraging advanced AI and natural language processing, the app provides personalized responses and integrates with various services. Built using Flutter and Firebase, it offers real-time updates and secure cloud storage.',
-    github: 'https://github.com/asifaliabbasi/AI-Assistant-Flutter-Application'
+    title: 'AI Assistant - Flutter App',
+    desc: 'Smart AI companion built with Flutter and advanced AI integration.',
+    details: 'AI Assistant is a smart AI companion Flutter app capable of answering questions, setting reminders, and assisting with daily tasks. Leveraging advanced AI and natural language processing, the app provides personalized responses and integrates with various services. Built using Flutter and Dart programming with Firebase backend, it offers real-time updates and secure cloud storage.',
+    github: 'https://github.com/asifaliabbasi/AI-Assistant-Flutter-Application',
+    technologies: ['Flutter', 'Dart', 'AI Integration', 'Firebase', 'NLP']
   },
   {
     img: '/assets/apps/CloudsNow.png',
-    title: 'CloudsNow',
-    desc: 'Weather updates at your fingertips.',
-    details: 'CloudsNow delivers accurate weather updates at your fingertips. The app provides real-time weather data, forecasts, and alerts for your location. With a beautiful and intuitive UI built in Flutter and real-time data synchronization via Firebase, CloudsNow keeps you informed about the weather wherever you are.',
-    github: 'https://github.com/asifaliabbasi/weather_app'
+    title: 'CloudsNow - Flutter Weather App',
+    desc: 'Real-time weather app with beautiful UI built using Flutter.',
+    details: 'CloudsNow delivers accurate weather updates in a beautiful Flutter app interface. The app provides real-time weather data, forecasts, and alerts for your location across Android and iOS platforms. With intuitive UI built in Flutter and Dart programming language, plus real-time data synchronization via APIs, CloudsNow keeps you informed about weather conditions wherever you are.',
+    github: 'https://github.com/asifaliabbasi/weather_app',
+    technologies: ['Flutter', 'Dart', 'API Integration', 'Weather API', 'Cross-Platform']
   },
   {
     img: '/assets/apps/ChitChat.png',
-    title: 'ChitChat',
-    desc: 'A fun chat and messaging app.',
-    details: 'ChitChat is a fun and secure chat and messaging app. It supports real-time messaging, group chats, and media sharing, all within a vibrant and easy-to-use interface. Built with Flutter for a smooth cross-platform experience and Firebase for instant data sync and authentication, ChitChat makes staying connected effortless.',
-    github: 'https://github.com/asifaliabbasi/chit_chat_app-Flutter-Application'}
+    title: 'ChitChat - Flutter Messaging App',
+    desc: 'Secure real-time chat app built with Flutter and Firebase.',
+    details: 'ChitChat is a secure real-time chat and messaging Flutter app supporting instant messaging, group chats, and media sharing. Features vibrant and easy-to-use interface built with Flutter and Dart programming. Includes Firebase for instant data synchronization, authentication, and real-time messaging capabilities across Android and iOS platforms.',
+    github: 'https://github.com/asifaliabbasi/chit_chat_app-Flutter-Application',
+    technologies: ['Flutter', 'Dart', 'Firebase', 'Real-time Messaging', 'Cross-Platform']
+  }
 ];
 
 function ProjectModal({ open, onClose, project }) {
@@ -75,7 +80,7 @@ const PortfolioCard = ({ project, onInView, onViewClick }) => {
   }, [inView, onInView]);
   return (
     <div ref={ref} className="portfolio-card" style={{ maxWidth: '320px', width: '85%' }}>
-      <img src={project.img} alt={project.title} className="portfolio-img" style={{ width: '100%', height: '220px', objectFit: 'contain', borderRadius: '16px', marginBottom: '1rem' }} />
+      <img src={project.img} alt={`${project.title} - Flutter app screenshot showing cross-platform mobile development`} className="portfolio-img" style={{ width: '100%', height: '220px', objectFit: 'contain', borderRadius: '16px', marginBottom: '1rem' }} />
       <h2 className="portfolio-title" style={{ textAlign: 'center' }}>{project.title}</h2>
       <p className="portfolio-desc" style={{ textAlign: 'center' }}>{project.desc}</p>
       <button className="portfolio-view" style={{ display: 'block', margin: '0 auto' }} onClick={() => onViewClick(project)}>View Project</button>
@@ -99,7 +104,7 @@ const Portfolio = ({ onCardInView }) => {
 
   return (
     <section className="portfolio-section">
-      <h2 className="section-title">Portfolio</h2>
+      <h2 className="section-title">Recent Flutter Projects</h2>
       <div className="portfolio-grid">
         {projects.map((project, idx) => (
           <PortfolioCard key={idx} project={project} onInView={onCardInView} onViewClick={handleViewClick} />

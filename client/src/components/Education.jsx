@@ -5,10 +5,10 @@ const education = [
 ];
 
 const experience = [
-  { company: 'Cadet College Ghotki', years: '2019-Present', role: 'Media Manager', desc: 'Managing media and communications for Cadet College Ghotki.' },
-  { company: 'Rotaract International Club SAU Tandojam', years: '2023-2025', role: 'Media Influencer', desc: 'Promoting club activities and engaging with the community as a media influencer.' },
-  { company: 'CodeAlpha', years: 'Feb 2025-Present', role: 'Application Developer Intern', desc: 'Developing applications as an intern, focusing on real-world projects and learning new technologies.' },
-  { company: 'Upwork & Fiverr', years: '2023-Present', role: 'Mobile App Developer', desc: 'Building mobile applications for clients worldwide as a freelancer on Upwork and Fiverr.' },
+  { company: 'Cadet College Ghotki', years: '2019-Present', role: 'Media Manager', desc: 'Managing media and communications for Cadet College Ghotki while developing technical skills.' },
+  { company: 'Rotaract International Club SAU Tandojam', years: '2023-2025', role: 'Media Influencer', desc: 'Promoting club activities and engaging with the community as a media influencer using digital platforms.' },
+  { company: 'CodeAlpha', years: 'Feb 2025-Present', role: 'Flutter Application Developer Intern', desc: 'Developing Flutter applications as an intern, focusing on cross-platform mobile development and learning advanced Flutter techniques.' },
+  { company: 'Upwork & Fiverr', years: '2023-Present', role: 'Freelance Flutter Developer', desc: 'Building cross-platform mobile applications using Flutter and Dart for clients worldwide. Specializing in Firebase integration, API connectivity, and custom UI development.' },
 ];
 
 const Education = () => (

@@ -1,5 +1,6 @@
 import MenuBar, { Footer } from './components/MenuBar';
 import Hero from './components/Hero';
+import About from './components/About';
 import Services from './components/Services';
 import Portfolio from './components/Portfolio';
 import Education from './components/Education';
@@ -29,6 +30,7 @@ function App() {
       <section id="hero">
         <Hero showAvatar={true} playJump={false} />
       </section>
+      <section id="about"><About /></section>
       <section id="services" ref={servicesInViewRef}>
         <Services showAvatar={avatarSection === 'services'} playJump={playJump} />
       </section>
