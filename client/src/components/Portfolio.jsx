@@ -3,6 +3,22 @@ import { useInView } from 'react-intersection-observer';
 
 const projects = [
   {
+    img: '/assets/apps/Lernora.png',
+    title: 'Lernora - Learning Management System',
+    desc: 'Full-featured LMS with courses, certificates, AI chatbot, and Stripe payments.',
+    details: 'Lernora is a comprehensive Learning Management System built with Flutter for cross-platform support (Android, iOS, Web, Desktop). Features include course creation, video lessons, professional certificates, subscription management via Stripe, AI-powered chatbot using Google Gemini API, Zoom integration for live sessions, and a powerful analytics dashboard. Backend powered by Firebase with AWS S3 + CloudFront CDN for media delivery.',
+    link: 'https://lernora.org',
+    technologies: ['Flutter', 'Firebase', 'AWS S3', 'Stripe', 'Gemini AI', 'Zoom', 'GetX']
+  },
+  {
+    img: '/assets/apps/ITResourceHub.png',
+    title: 'IT Resource Hub - Educational Platform',
+    desc: 'Structured guidance and curated resources for IT students and beginners.',
+    details: "IT Resource Hub provides structured guidance, curated resources, and a clear path forward for IT students. By seniors who've been there, for juniors finding their way. Features include roadmaps, subjects with notes & past papers, community updates, FAQs, and contribution system. Built with React 19 and Firebase for authentication, Firestore database, and cloud storage.",
+    link: 'https://itresourcehub.vercel.app',
+    technologies: ['React 19', 'Firebase', 'Vite', 'Vercel', 'Lucide React', 'React Hook Form']
+  },
+  {
     img: '/assets/apps/ShopEasy.png',
     title: 'ShopEasy - Flutter E-commerce App',
     desc: 'Modern cross-platform E-commerce app built with Flutter and Firebase.',
@@ -36,42 +52,69 @@ const projects = [
   }
 ];
 
+
 function ProjectModal({ open, onClose, project }) {
   if (!open || !project) return null;
   return (
-    <div style={{
-      position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh',
-      background: 'rgba(0,0,0,0.5)', zIndex: 10000, display: 'flex', alignItems: 'center', justifyContent: 'center'
-    }}>
-      <div style={{
-        background: '#23233a', color: '#fff', borderRadius: '1.2rem', padding: '1.2rem 1rem',
-        minWidth: 260, maxWidth: 500, boxShadow: '0 4px 32px #a259ff33', position: 'relative', textAlign: 'center',
-        transform: 'scale(1.1)'
-      }}>
+    <div
+      className="modal-backdrop"
+      onClick={(e) => e.target === e.currentTarget && onClose()}
+    >
+      <div
+        className="modal-content card"
+        style={{
+          minWidth: 280,
+          maxWidth: 520,
+          padding: '1.5rem 1.2rem',
+          textAlign: 'center',
+        }}
+        onClick={(e) => e.stopPropagation()}
+      >
         <button onClick={onClose} style={{
           position: 'absolute', top: 12, right: 18, background: 'none', border: 'none',
           color: '#fff', fontSize: 28, cursor: 'pointer'
         }}>&times;</button>
-        <img src={project.img} alt={project.title} style={{objectFit: 'contain', width: '30%', borderRadius: '1rem', marginBottom: '1.2rem' }} />
-        <h2 style={{ color: '#a259ff', marginTop: 0 }}>{project.title}</h2>
-        <p style={{ marginBottom: '1.2rem' }}>{project.desc}</p>
-        <p style={{ fontSize: '0.98rem', color: '#e0e0e0', marginBottom: '1.2rem' }}>{project.details}</p>
-        <a href={project.github} target="_blank" rel="noopener noreferrer" style={{
-          display: 'inline-block',
-          background: 'linear-gradient(90deg, #ff7eb3, #4e9cff)',
-          color: '#fff',
-          borderRadius: '1.25rem',
-          fontWeight: 600,
-          padding: '0.7rem 1.5rem',
-          margin: '0.5rem 0 0.7rem 0',
-          textDecoration: 'none',
-          boxShadow: '0 2px 16px 0 rgba(160, 89, 255, 0.18)',
-          transition: 'box-shadow 0.3s, transform 0.3s',
-        }}>View on GitHub</a>
+        <img src={project.img} alt={project.title} style={{ objectFit: 'contain', width: '60%', borderRadius: '1rem', marginBottom: '1rem' }} />
+        <h2 style={{ color: '#a259ff', marginTop: 0, fontSize: '1.4rem' }}>{project.title}</h2>
+        <p style={{ marginBottom: '0.8rem', color: '#4e9cff' }}>{project.desc}</p>
+        <p style={{ fontSize: '0.95rem', color: '#e0e0e0', marginBottom: '1rem', lineHeight: 1.5 }}>{project.details}</p>
+
+        {/* Tech Stack Badges */}
+        {project.technologies && (
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', justifyContent: 'center', marginBottom: '1.2rem' }}>
+            {project.technologies.map((tech, idx) => (
+              <span key={idx} style={{
+                background: 'rgba(162, 89, 255, 0.15)',
+                color: '#a259ff',
+                padding: '0.3rem 0.8rem',
+                borderRadius: '1rem',
+                fontSize: '0.8rem',
+                fontWeight: 500,
+                border: '1px solid rgba(162, 89, 255, 0.3)'
+              }}>{tech}</span>
+            ))}
+          </div>
+        )}
+
+        {/* Link button - supports both github and live link */}
+        <a
+          href={project.link || project.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cta"
+          style={{
+            display: 'inline-block',
+            textDecoration: 'none',
+            marginTop: '0.5rem',
+          }}
+        >
+          {project.link ? '🌐 Visit Website' : '📂 View on GitHub'}
+        </a>
       </div>
     </div>
   );
 }
+
 
 const PortfolioCard = ({ project, onInView, onViewClick }) => {
   const { ref, inView } = useInView({ threshold: 0.5 });

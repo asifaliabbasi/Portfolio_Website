@@ -1,5 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import SplineEmbed from './SplineEmbed';
+
+// Debounce utility for resize handlers
+const debounce = (func, wait) => {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func(...args), wait);
+  };
+};
 
 const tools = ['💙', '🎯', '🔥', '🌐', '⚛️', '🟢']; // Flutter, Dart, Firebase, Web, React, Node
 
@@ -58,7 +67,7 @@ const HireMeModal = ({ onClose }) => (
 function useProfileImageSize() {
   const [size, setSize] = useState(260);
   useEffect(() => {
-    function handleResize() {
+    const handleResize = debounce(() => {
       if (window.innerWidth <= 500) {
         setSize(220);
       } else if (window.innerWidth <= 700) {
@@ -66,7 +75,7 @@ function useProfileImageSize() {
       } else {
         setSize(260);
       }
-    }
+    }, 150);
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
@@ -77,9 +86,9 @@ function useProfileImageSize() {
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 700);
   useEffect(() => {
-    function handleResize() {
+    const handleResize = debounce(() => {
       setIsMobile(window.innerWidth <= 700);
-    }
+    }, 150);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -139,16 +148,16 @@ const Hero = ({ showAvatar, playJump }) => {
         }}
       >
         <a href="https://flutter.dev/" target="_blank" rel="noopener noreferrer">
-          <img src="/assets/Icons/flutter.png" alt="Flutter" style={{ width: 38, height: 38 }} />
+          <img src="/assets/Icons/flutter.png" alt="Flutter" loading="lazy" width="38" height="38" style={{ width: 38, height: 38 }} />
         </a>
         <a href="https://firebase.google.com/" target="_blank" rel="noopener noreferrer">
-          <img src="/assets/Icons/firebase.png" alt="Firebase" style={{ width: 38, height: 38 }} />
+          <img src="/assets/Icons/firebase.png" alt="Firebase" loading="lazy" width="38" height="38" style={{ width: 38, height: 38 }} />
         </a>
         <a href="https://en.wikipedia.org/wiki/SQL" target="_blank" rel="noopener noreferrer">
-          <img src="/assets/Icons/sql.png" alt="SQL" style={{ width: 38, height: 38 }} />
+          <img src="/assets/Icons/sql.png" alt="SQL" loading="lazy" width="38" height="38" style={{ width: 38, height: 38 }} />
         </a>
         <a href="https://restfulapi.net/" target="_blank" rel="noopener noreferrer">
-          <img src="/assets/Icons/api.png" alt="API" style={{ width: 38, height: 38 }} />
+          <img src="/assets/Icons/api.png" alt="API" loading="lazy" width="38" height="38" style={{ width: 38, height: 38 }} />
         </a>
       </div>
       {/* Main row: profile + robot */}
@@ -169,7 +178,7 @@ const Hero = ({ showAvatar, playJump }) => {
             flex: 1,
             marginTop: '3rem'
           }}
-          className="robot-container"
+            className="robot-container"
           >
             {/* Robot speech bubble */}
             <div
@@ -280,7 +289,10 @@ const Hero = ({ showAvatar, playJump }) => {
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
             <img
               src="/assets/WhatsApp Image 2025-05-13 at 03.04.34_ab76eabe.jpg"
-              alt="Profile"
+              alt="Asif Ali - Flutter Developer Portfolio"
+              loading="lazy"
+              width="220"
+              height="220"
               style={{
                 borderRadius: '50%',
                 objectFit: 'cover',
@@ -319,7 +331,7 @@ const Hero = ({ showAvatar, playJump }) => {
             flex: 1,
             marginTop: '3rem'
           }}
-          className="robot-container"
+            className="robot-container"
           >
             {/* Robot speech bubble */}
             <div
